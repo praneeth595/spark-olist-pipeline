@@ -23,4 +23,4 @@ jobs:
           pip install pytest chispa pyspark==3.5.0 delta-spark
 
       - name: Run all tests (Bronze + Silver + Gold)
-        run: PYTHONPATH=src pytest -v tests/ --disable-warnings
+        run: pytest -v tests/ --disable-warnings

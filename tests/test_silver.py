@@ -1,6 +1,6 @@
 # Databricks notebook source
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+# MAGIC %run
+# MAGIC /Workspace/Repos/h20240186@pilani.bits-pilani.ac.in/spark-olist-pipeline/src/silver/silver_transform
 
 # COMMAND ----------
 

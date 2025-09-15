@@ -1,8 +1,6 @@
 # Databricks notebook source
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
-from bronze.bronze_ingest import transform_bronze
-
+# MAGIC %run
+# MAGIC /Workspace/Repos/h20240186@pilani.bits-pilani.ac.in/spark-olist-pipeline/src/bronze/bronze_ingest
 
 # COMMAND ----------
 

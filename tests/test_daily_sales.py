@@ -1,8 +1,8 @@
 # Databricks notebook source
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
-
-
+# MAGIC %run
+# MAGIC /Workspace/Repos/h20240186@pilani.bits-pilani.ac.in/spark-olist-pipeline/src/gold/gold_sales
+# MAGIC
+# MAGIC
 
 # COMMAND ----------
 
@@ -46,6 +46,10 @@ def test_daily_state_revenue(spark):
 # COMMAND ----------
 
 # MAGIC %pip install chispa
+
+# COMMAND ----------
+
+
 
 # COMMAND ----------
 

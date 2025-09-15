@@ -31,9 +31,9 @@ def ingest_to_bronze(spark, cfg):
 
 # COMMAND ----------
 
-
-for table, cfg in bronze_sources.items():
-    ingest_to_bronze(spark, cfg)
+if __name__ == "__main__":
+    for table, cfg in bronze_sources.items():
+        ingest_to_bronze(spark, cfg)
 
 # COMMAND ----------
 
