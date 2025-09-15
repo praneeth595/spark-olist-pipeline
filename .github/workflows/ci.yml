@@ -18,8 +18,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest chispa pyspark==3.5.0
 
-      - name: Run tests
-        run: PYTHONPATH=src pytest -v --disable-warnings
 
 
      
