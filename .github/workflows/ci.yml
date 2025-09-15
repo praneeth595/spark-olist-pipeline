@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest chispa pyspark==3.5.0 delta-spark
       - name: Run only Silver tests
-        run: pytest -v tests/test_silver.py --disable-warnings
+        run: pytest -v tests/test_silver --disable-warnings
 
 
 
