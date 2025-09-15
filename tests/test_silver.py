@@ -5,7 +5,6 @@
 # COMMAND ----------
 
 from chispa.dataframe_comparer import assert_df_equality
-from silver.silver_transform import curate_to_silver
 
 def test_curate_to_silver_standardizes_and_dedupes(spark):
     data = [

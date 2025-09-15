@@ -9,7 +9,7 @@
 
 from chispa.dataframe_comparer import assert_df_equality
 from pyspark.sql import functions as F
-from gold.gold_sales import build_daily_state_revenue
+
 
 
 def test_daily_state_revenue(spark):
