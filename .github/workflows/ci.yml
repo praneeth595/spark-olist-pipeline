@@ -21,8 +21,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest chispa pyspark==3.5.0 delta-spark
-      - name: Run only Silver tests
-        run: pytest -v tests/test_bronze --disable-warnings
+      - name: Run only bronze tests
+        run: pytest -m bronze -v
+
 
 
 
