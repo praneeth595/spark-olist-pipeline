@@ -4,6 +4,21 @@
 
 # COMMAND ----------
 
+import pytest
+from pyspark.sql import SparkSession
+
+@pytest.fixture(scope="session")
+def spark():
+    spark_session = SparkSession.builder \
+        .master("local[*]") \
+        .appName("pytest-pyspark-local-testing") \
+        .getOrCreate()
+    yield spark_session
+    spark_session.stop()
+
+
+# COMMAND ----------
+
 from pyspark.sql.functions import date_format
 
 def transform_bronze(df, partition_col=None, repartition_rows=None):
