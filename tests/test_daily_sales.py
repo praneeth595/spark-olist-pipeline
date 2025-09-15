@@ -6,27 +6,8 @@
 
 # COMMAND ----------
 
-import pytest
-from pyspark.sql import SparkSession
-
-@pytest.fixture(scope="session")
-def spark():
-    spark_session = SparkSession.builder \
-        .master("local[*]") \
-        .appName("pytest-pyspark-local-testing") \
-        .getOrCreate()
-    yield spark_session
-    spark_session.stop()
-
-
-# COMMAND ----------
-
-
 from chispa.dataframe_comparer import assert_df_equality
 from pyspark.sql import functions as F
-
-
-
 def test_daily_state_revenue(spark):
     orders = spark.createDataFrame([
         ("o1", "c1", "2018-01-01 10:00:00"),
