@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest chispa pyspark==3.5.0 delta-spark nbmake
+          pip install pytest chispa pyspark==3.5.0 delta-spark
 
-      - name: Run notebook tests (Bronze + Silver + Gold)
-        run: pytest --nbmake tests/test_bronze.ipynb -v --disable-warnings
+      - name: Run all tests (Bronze + Silver + Gold)
+        run: PYTHONPATH=src pytest -v tests/ --disable-warnings
