@@ -28,7 +28,7 @@ def test_transform_bronze_adds_partition_col(spark):
 
 # COMMAND ----------
 
-
+# MAGIC %pip install chispa
 
 # COMMAND ----------
 

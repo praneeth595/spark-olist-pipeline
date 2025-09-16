@@ -1,49 +1,21 @@
-name: CI-CD
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install pytest pytest-nbmake papermill chispa pyspark==3.5.0 delta-spark==3.2.0
 
-      - name: Run tests
-        run: pytest -v tests/ --disable-warnings
+      - name: Run unit tests
+        run: pytest tests/ --disable-warnings -v
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Databricks CLI
-        run: pip install databricks-cli
-
-      - name: Configure Databricks CLI
-        run: |
-          databricks configure --token <<EOF
-          ${{ secrets.DATABRICKS_HOST }}
-          ${{ secrets.DATABRICKS_TOKEN }}
-          EOF
-
-      - name: Deploy src/ to Databricks
-        run: |
-          databricks workspace import_dir src /Repos/${{ secrets.DATABRICKS_USER }}/spark-olist-pipeline -o
-
-      - name: Trigger Databricks job
-        run: |
-          databricks jobs run-now --job-id ${{ secrets.DATABRICKS_JOB_ID }}
+      - name: Run all notebooks
+        run: pytest --nbmake src/**/*.ipynb --disable-warnings -v

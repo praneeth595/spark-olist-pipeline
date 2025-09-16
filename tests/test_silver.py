@@ -4,11 +4,6 @@
 
 # COMMAND ----------
 
-
-
-
-# COMMAND ----------
-
 from chispa.dataframe_comparer import assert_df_equality
 def test_curate_to_silver_standardizes_and_dedupes(spark):
     data = [

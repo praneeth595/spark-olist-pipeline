@@ -43,8 +43,8 @@ def curate_to_silver(spark, key, value, df=None):
 
 # COMMAND ----------
 
-for key,value in silver_sources.items():
-    curate_to_silver(key,value)
+for key, value in silver_sources.items():
+    curate_to_silver(spark, key, value)
 
 # COMMAND ----------
 
